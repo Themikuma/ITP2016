@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "LoginPage";
+}
+
+<h2>LoginPage</h2>
+<form action="/Home/Login" method="post">
+    <input type="text" name="username" id="username" value="" />
+    <input type="password" name="password" id="password" value="" />
+    <input type="submit" name="name" value=" " />
+</form>
+
+<script type="text/javascript">
+    function success(data) {
+        for (var i = 0; i < data.length; i++) {
+            book = data[i];
+            textfield = book.isbn;
+            textfield = book.author;
+        }
+    }
+</script>
