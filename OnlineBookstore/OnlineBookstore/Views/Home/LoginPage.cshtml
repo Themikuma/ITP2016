@@ -4,6 +4,8 @@
 }
 
 
+    <Font color=#0000FF size="4"><h1><b> Login Page</b></h1></Font>
+
 <script type="text/javascript">
     function success(data) {
         for (var i = 0; i < data.length; i++) {
@@ -12,3 +14,27 @@
             textfield = book.author;
         }
     }
+</script>
+    
+    <form action="/Home/Login" method="post">
+        User name : <input type="text" name="username" autocomplete="off"/>
+        Password  : <input type="password" name="password" autocomplete="off"/>
+
+     <table>
+            <tr>
+                <td align="center">
+                    <br>
+                    <input type="submit" value=" Sign in "/>
+    
+    </table></form>
+    <table>
+    <tr>
+    <td align="center"> <b>Are you new to book store? Creat your account!</b>
+    </tr>
+    <tr>
+    <td>
+        <form action="/Home/RegistrationForm" method="post">
+           <input type="submit" value=" Creat your new account "/>
+        </form>
+    </td></tr>
+    </table>
