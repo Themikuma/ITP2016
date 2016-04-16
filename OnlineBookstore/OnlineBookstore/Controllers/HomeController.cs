@@ -21,14 +21,27 @@ namespace OnlineBookstore.Controllers
             return View();
         }
 
-        public ActionResult Login(string username,string password)
+       public ActionResult Login(string username, string password)
+         { 
+             if (username=="123" && password=="456") 
+             { 
+                 return View("LoginSuccess"); 
+             } 
+           return View("LoginFail"); 
+       }
+
+        public ActionResult RegistrationForm()
         {
-            if (username=="123" && password=="456")
-            {
-                return View("Success");
-            }
-            return View("Fail");
+            return View();
         }
+
+        public ActionResult Registration(String title, String firstName, String lastName, String year, String month, String day, String username,
+          String password, String confirmPassword, String address, String zipCode, String country, String email, String teleNum, String newsAgree,
+          String termAgree) // I don't know how can i receive the value of checkbox. 
+        {
+            return View();
+        }
+
 
         public JsonResult GetAllBooks()
         {
