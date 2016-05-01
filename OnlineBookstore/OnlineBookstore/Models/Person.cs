@@ -16,12 +16,12 @@ namespace OnlineBookstore.Models
         [Required]
         public String lastName { get; set; }
         [Required]
-        public DateTime birthDate { get; set; }
-        [Required]
+        public DateTime BirthDate { get; set; }
+        [Required(ErrorMessage = "Enter a UID")]
         [StringLength(15)]
-        public String userID { get; set; }
-        [Required]
-        [StringLength(30, MinimumLength = 8 )]
+        public String UserID { get; set; }
+        [Required (ErrorMessage ="Enter a password")]
+        [StringLength(30, MinimumLength = 8,ErrorMessage ="Password too short" )]
         public String password { get; set; }
         [Required]
         public String address { get; set; }

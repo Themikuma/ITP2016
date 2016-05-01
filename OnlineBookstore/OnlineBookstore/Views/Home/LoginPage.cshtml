@@ -86,13 +86,13 @@
                 <form asp-controller="Home" asp-action="/Home/Login" method="post">
                     <div class="form-group">
                         <label class="left" for="userID">user ID : </label>
-                        <input class="form-control" name="userID" type="text" id="userID" value="userID" autocomplete="off" />
-                        <span asp-validation-for="@OnlineBookstore.Models.Person.userID" class="text-danger" ></span>
+                        @Html.TextBoxFor(p=>p.UserID,new { @class = "form-control", @value="this is cool" })
+                        @Html.ValidationMessageFor(m => m.UserID, "", new { @class = "text-danger" })
                     </div> 
                     <div class="form-group">
                         <label for="password">Password  :</label>
-                        <input class="form-control" name="password" id="password" value="password" autocomplete="off" />
-                        <span asp-validation-for="password" class="text-danger"></span>
+                        @Html.PasswordFor(p => p.password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m=>m.password, "", new {@class = "text-danger" })
 
                      </div>
 
