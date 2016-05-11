@@ -12,7 +12,7 @@ namespace OnlineBookstore.Data
         {
             Database.SetInitializer(
                 new MigrateDatabaseToLatestVersion
-                <UserDbContext, Configuration>());
+                <UserDbContext, UserConfiguration>());
         }
 
         public static UserDbContext Create()

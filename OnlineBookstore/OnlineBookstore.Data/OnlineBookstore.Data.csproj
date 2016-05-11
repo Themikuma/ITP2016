@@ -85,7 +85,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="BookstoreDbContext.cs" />
+    <Compile Include="Migrations\BookstoreConfiguration.cs" />
+    <Compile Include="Migrations\UserConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserDbContext.cs" />
   </ItemGroup>
