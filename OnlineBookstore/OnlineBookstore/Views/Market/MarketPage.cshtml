@@ -1,0 +1,104 @@
+﻿<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/shop-homepage.css" rel="stylesheet">
+<html>
+<body>
+    <h2> Book List  </h2><hr />&nbsp;
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+
+                <h3>Genre</h3><hr />
+
+                   @Html.Partial("GenreMenu")
+                </div>
+            
+            <div class="col-md-9">
+                <div class="row carousel-holder">
+                    <!-- Best seller -->
+
+                    <h1><span style="color:#2E2E2E"> Best seller</span> TOP3</h1> <hr />
+                    <div class="col-md-12">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Book Market with many genre -->
+                
+                <div claass="row">
+
+                    <br /><br />
+                    <font size="5"> <span style="color:black">Fiction</span></font><hr />
+                    @Html.Partial("MarketBookThumnailPartial")
+
+                    <br /><br />
+                    <font size="5"> <span style="color:black">Business</span></font><hr />
+                    @Html.Partial("MarketBookThumnailPartial")
+                    <br /><br />
+                    <font size="5"> <span style="color:black">Biography</span></font><hr />
+                    @Html.Partial("MarketBookThumnailPartial")
+
+                    <br /><br />
+                    <font size="5"> <span style="color:black">Art</span></font><hr />
+                    @Html.Partial("MarketBookThumnailPartial")
+
+                </div>
+
+
+                </div>
+
+        </div>
+    </div>
+
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
