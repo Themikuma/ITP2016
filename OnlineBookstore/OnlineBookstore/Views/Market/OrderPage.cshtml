@@ -1,0 +1,137 @@
+﻿<link href="~/Content/bootstrap.min.css" rel="stylesheet">
+<link href="~/Content/shop-homepage.css" rel="stylesheet">
+<html>
+<body>
+    <h2> Cart List  </h2><hr />&nbsp;
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+
+                <h3>Genre</h3><hr />
+
+                @Html.Partial("GenreMenu")
+            </div>
+
+            <div class="col-md-9">
+                <div class="table-responsive">
+                    <div class="title">
+                        <p><font size="5"><b>Order Lists</b></font></p><hr />
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+
+                                <td>
+                                    No
+                                </td>
+                                <td>
+                                    Book Name
+                                </td>
+                                <td>
+                                    Book Author
+                                </td>
+                                <td>
+                                    Book Price
+                                </td>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @for (int i = 1; i < 8; i++)
+            {
+                                <tr>
+
+                                    <td>@i</td>
+                                    <td>Book image with book name <br /></td>
+                                    <td>blah blah </td>
+                                    <td>10euro</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <br /><br />
+
+
+                <div class="row">
+                    <font size="5"><b>Shipping information</b></font><hr />
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            E-mail :
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            First Name :
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            Last Name :
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            Address :
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            Country :
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            ZipCode :
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            PhoneNumber :
+                        </div>
+                    </div>
+                    
+                    <br />
+                    <br />
+
+                    <div class="col-md-12 " align="right">
+                        <font size="5">Total Price :</font>
+                        <font size="5">
+                            <b>  </b>
+                        </font>
+                    </div>
+
+                 <br /><br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-9">
+            <input type="submit" class="btn btn-primary btn-lg" value="Order Now" />
+            <div class="col-md-offset-2 col-md-3">
+                <input type="button" class="btn btn-default btn-lg" value="Cancel" onclick="location='~/Market/MarketPage'" />
+            </div>
+        </div>
+    </div>
+
+       </div>
+         
+
+    </div>
+
+
+
+        </div>
+    </div>
+</body>
+</html>
+

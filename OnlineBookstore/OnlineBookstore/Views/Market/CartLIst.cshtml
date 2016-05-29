@@ -1,0 +1,93 @@
+﻿<link href="~/Content/bootstrap.min.css" rel="stylesheet">
+<link href="~/Content/shop-homepage.css" rel="stylesheet">
+<html>
+<body>
+    <h2> Cart List  </h2><hr />&nbsp; 
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+
+                <h3>Genre</h3><hr />
+
+                @Html.Partial("GenreMenu")
+            </div>
+
+            <div class="col-md-9">
+
+
+                <div class="table-responsive">
+                    <div class="Title">
+                        <p><font size="5"><b>Books list you selected in cart</b></font></p>
+                    </div>
+                    <table class="table">
+    <thead>
+        <tr>
+
+            <td>
+                No
+            </td>
+            <td>
+                Book Name
+            </td>
+            <td>
+                Book Author
+            </td>
+            <td>
+                Book Price
+            </td>
+
+        </tr>
+        </thead>
+
+               <!-- Please add bringing book list from cart database and delete function -->
+         <tbody>
+             @for (int i = 1; i < 8; i++)
+            {
+                 <tr>
+                  
+                     <td>@i</td>
+                     <td>Book image with book name <br /> <a href="#"> Delete</a> </td>
+                     <td>blah blah </td>
+                     <td>10euro</td>
+                 </tr>
+             }
+         </tbody>
+       </table>
+    </div>
+                </div>
+
+            <br /><br />
+
+        <div class="col-md-12 " align="right"><font size="5">Total Price :</font>
+                <font size="5">
+                 <b> 50euro </b>
+             </font></div>
+
+                <br /><br />
+
+                <div class="row">
+
+                    <div class="col-md-9" align="right">
+                        <input type="submit" class="btn btn-default btn-lg" value="Select more books" onclick="location='MarketPage'" />
+                    </div>
+                    <div class="col-md-3" align="right" >
+                        <input type="button" class="btn btn-primary btn-lg" value="Buy all books in cart" onclick="location='OrderPage'" />
+                    </div>
+                </div>
+           
+
+
+
+    </div>
+
+</div>
+</div>
+
+    <!-- if there is selected book list, please repeat this div class -->
+    <!-- from here -->
+
+</body>
+</html>

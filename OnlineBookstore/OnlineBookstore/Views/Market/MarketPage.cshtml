@@ -51,22 +51,31 @@
 
                 <!-- Book Market with many genre -->
                 
-                <div claass="row">
-
+                
+                    <div class="row carousel-holder">
                     <br /><br />
                     <font size="5"> <span style="color:black">Fiction</span></font><hr />
-                    @Html.Partial("MarketBookThumnailPartial")
+                    @Html.Partial("MarketBookThumnailPartial") <br /><br />
+                        </div>
+   
+                    <div class="row carousel-holder">
+                        <br /><br />
+                        <font size="5"> <span style="color:black">Business</span></font><hr />
+                        @Html.Partial("MarketBookThumnailPartial")
 
-                    <br /><br />
-                    <font size="5"> <span style="color:black">Business</span></font><hr />
-                    @Html.Partial("MarketBookThumnailPartial")
+                    </div>
+
+                <div class="row carousel-holder">
                     <br /><br />
                     <font size="5"> <span style="color:black">Biography</span></font><hr />
                     @Html.Partial("MarketBookThumnailPartial")
+                </div>
 
+                <div class="row carousel-holder">
                     <br /><br />
                     <font size="5"> <span style="color:black">Art</span></font><hr />
                     @Html.Partial("MarketBookThumnailPartial")
+                </div>
 
                 </div>
 
@@ -74,7 +83,7 @@
                 </div>
 
         </div>
-    </div>
+    
 
     <!-- /.container -->
 

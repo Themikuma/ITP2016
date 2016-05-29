@@ -18,6 +18,16 @@ namespace OnlineBookstore.Controllers
             return View();
         }
 
+        public ActionResult CartList()
+        {
+            return View();
+        }
+
+        public ActionResult OrderPage()
+        {
+            return View();
+        }
+
 
     }
 }
