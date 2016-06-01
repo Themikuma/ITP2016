@@ -1,0 +1,31 @@
+﻿@using OnlineBookstore.Models
+@model BookPreviewViewModel
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <img src="@Url.Action("GetLocalImage", "Images", new { imageName = Model.Picture })" alt="" />
+        @*<img src="http://placehold.it/320x150" alt="">*@
+        <div class="caption">
+            <h4 class="pull-right">@Model.Price $</h4>
+            <h4>
+                <a href="#">@Model.Title</a>  
+            </h4>
+            <p>@Model.Description</p>
+        </div>
+        <div class="ratings">
+            <p>
+                @{int i = 0; }  
+                @for (; i < Model.Stars; i++)
+                {
+                    <span class="glyphicon glyphicon-star"></span>
+                }
+                @for (; i < 5; i++)
+                {
+
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                }
+            </p>
+        </div>
+    </div>
+</div>
+ 

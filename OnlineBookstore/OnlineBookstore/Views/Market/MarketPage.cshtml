@@ -1,4 +1,7 @@
-﻿<link href="css/bootstrap.min.css" rel="stylesheet">
+﻿@using OnlineBookstore.Models
+@model MarketPageViewModel
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/shop-homepage.css" rel="stylesheet">
 <html>
 <body>
@@ -29,13 +32,13 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <img src="@Url.Action("GetLocalImage", "Images", new { imageName = Model.BestSellerOne.Picture})" alt="" />
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <img src="@Url.Action("GetLocalImage", "Images", new { imageName = Model.BestSellerTwo.Picture})" alt="" />
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <img src="@Url.Action("GetLocalImage", "Images", new { imageName = Model.BestSellerThree.Picture})" alt="" />
                                 </div>
                             </div>
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -51,35 +54,18 @@
 
                 <!-- Book Market with many genre -->
                 
-                
-                    <div class="row carousel-holder">
-                    <br /><br />
-                    <font size="5"> <span style="color:black">Fiction</span></font><hr />
-                    @Html.Partial("MarketBookThumnailPartial") <br /><br />
-                        </div>
-   
+                @foreach (var genre in Model.BooksByGenres)
+                {
                     <div class="row carousel-holder">
                         <br /><br />
-                        <font size="5"> <span style="color:black">Business</span></font><hr />
-                        @Html.Partial("MarketBookThumnailPartial")
-
+                        <font size="5"> <span style="color:black">@genre.Key</span></font><hr />
+                        @foreach (var item in genre.Value )
+                        {
+                            @Html.Partial("_MarketBookThumnailPartial",item)
+                        }
                     </div>
-
-                <div class="row carousel-holder">
-                    <br /><br />
-                    <font size="5"> <span style="color:black">Biography</span></font><hr />
-                    @Html.Partial("MarketBookThumnailPartial")
+                }
                 </div>
-
-                <div class="row carousel-holder">
-                    <br /><br />
-                    <font size="5"> <span style="color:black">Art</span></font><hr />
-                    @Html.Partial("MarketBookThumnailPartial")
-                </div>
-
-                </div>
-
-
                 </div>
 
         </div>

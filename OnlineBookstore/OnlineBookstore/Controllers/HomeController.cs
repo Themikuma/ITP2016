@@ -10,7 +10,7 @@ namespace OnlineBookstore.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("MarketPage", "Market");
         }
 
         public ActionResult About()

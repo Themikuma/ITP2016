@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace OnlineBookstore.Models.BookstoreModels
 {
@@ -10,25 +11,28 @@ namespace OnlineBookstore.Models.BookstoreModels
         public int Isbn { get; set; }
         
         [Required]
-        public int Price { get; set; }
+        public float Price { get; set; }
 
         [Required]
         public int Quantity { get; set; }
-
-        //[Required]
+        
         public int Pages { get; set; }
-
-        //[Required]
-        public int Published { get; set; }
+        
+        public DateTime Published { get; set; }
 
         [MaxLength(255)]
         public string Language { get; set; }
 
         [MaxLength(255)]
         public string GoodreadsLink { get; set; }
-
-        //[Required]
+        
         [MaxLength(255)]
         public string Title { get; set; }
+
+        [MaxLength(500)]
+        public string Description { get; set; }
+
+        [MaxLength(255)]
+        public string Picture { get; set; }
     }
 }
