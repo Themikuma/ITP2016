@@ -44,10 +44,13 @@ namespace OnlineBookstore.Controllers
             return View();
         }
 
-        public ActionResult BookDetails(int bookId)
+        public ActionResult BookDetails(/*int bookId*/)
         {
-            int id = bookId;
-            return View();
+            /*int id = bookId;*/
+
+            BookDetailsModel model = new BookDetailsModel();
+            model.title = new BookDetailsModel() { Title = "Test Book", Author = "Need a name", Description = "This story takes place in blah blah", ISBN = 325908249 }
+            return View(model);
         }
 
     }
