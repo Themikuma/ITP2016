@@ -5,7 +5,7 @@ using System.Web;
 
 namespace OnlineBookstore.Models
 {
-    public class BookDetailsModel : BookPreviewModel
+    public class BookDetailsViewModel : BookPreviewViewModel
     {
         public string Author { get; set; }
         public double ISBN { get; set; } 

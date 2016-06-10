@@ -16,5 +16,7 @@ namespace OnlineBookstore.Models
         public string Description { get; set; }
 
         public int Stars { get; set; }
+
+        public int Quantity { get; set; }
     }
 }
