@@ -17,9 +17,14 @@ namespace OnlineBookstore.Models
 
         public Dictionary<string, List<BookPreviewViewModel>> BooksByGenres;
 
-        public List<string> GenreList;
 
-        public string genre { get; set; }
+        public List<string> GenreList { get; set; }
+
+        [Required]
+        public string SelectedGenre { get; set; }
+
+        [Required]
+        public string SearchBookTitle { get; set; }
 
 
     }

@@ -14,11 +14,13 @@ namespace OnlineBookstore.Controllers
         {
             MarketPageViewModel model = new MarketPageViewModel();
             List<string> genreList = new List<string>();
+
             genreList.Add("Fiction");
             genreList.Add("Science");
             genreList.Add("Business");
             genreList.Add("Art");
             genreList.Add("Biography");
+            genreList.Add("NonFiction");
             model.GenreList = genreList;
 
             model.BooksByGenres = new Dictionary<string, List<BookPreviewViewModel>>();
