@@ -1,4 +1,7 @@
-﻿<link href="~/Content/bootstrap.min.css" rel="stylesheet">
+﻿@using OnlineBookstore.Models
+@model CartListViewModel
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet">
 <link href="~/Content/shop-homepage.css" rel="stylesheet">
 <html>
 <body>
@@ -8,14 +11,7 @@
 
         <div class="row">
 
-            <div class="col-md-3">
-
-                <h3>Genre</h3><hr />
-
-                @Html.Partial("GenreMenu")
-            </div>
-
-            <div class="col-md-9">
+            <div class="col-md-12">
 
 
                 <div class="table-responsive">
@@ -27,7 +23,7 @@
         <tr>
 
             <td>
-                No
+                Book Image
             </td>
             <td>
                 Book Name
@@ -44,14 +40,14 @@
 
                <!-- Please add bringing book list from cart database and delete function -->
          <tbody>
-             @for (int i = 1; i < 8; i++)
+             @foreach(var item in Model.CartList)
             {
                  <tr>
-                  
-                     <td>@i</td>
-                     <td>Book image with book name <br /> <a href="#"> Delete</a> </td>
-                     <td>blah blah </td>
-                     <td>10euro</td>
+                     
+                     <td><img src="@Url.Action("GetLocalImage", "Images", new { imageName = item.Picture})" /> </td>
+                     <td>@item.Title<br /> @Html.ActionLink("Delete", "DeleteCartList", "Market", new { id = item }) </td>
+                     <td>@item.Description </td>
+                     <td>@item.Price  €</td>
                  </tr>
              }
          </tbody>
@@ -63,7 +59,7 @@
 
         <div class="col-md-12 " align="right"><font size="5">Total Price :</font>
                 <font size="5">
-                 <b> 50euro </b>
+                 <b> @Model.TotalPrice  €</b>
              </font></div>
 
                 <br /><br />

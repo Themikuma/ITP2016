@@ -274,14 +274,14 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Market\GenreMenu.cshtml" />
     <Content Include="Views\Shared\_MarketBookThumnailPartial.cshtml" />
     <Content Include="Views\Market\MarketPage.cshtml" />
-    <Content Include="Views\Market\MarketPageSortedByGenre.cshtml" />
     <Content Include="Views\Shared\_CartPartial.cshtml" />
     <Content Include="Views\Shared\_SearchPartial.cshtml" />
     <Content Include="Views\Market\CartLIst.cshtml" />
+    <Content Include="Views\Market\MarketPageSortedByGenre.cshtml" />
     <Content Include="Views\Market\OrderPage.cshtml" />
+    <Content Include="Views\Market\DeleteCartList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Images\" />
@@ -326,7 +326,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>63334</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:12344</IISUrl>
+          <IISUrl>http://localhost:12311</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

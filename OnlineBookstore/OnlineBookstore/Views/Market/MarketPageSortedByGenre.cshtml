@@ -1,5 +1,11 @@
-﻿<link href="css/bootstrap.min.css" rel="stylesheet">
+﻿@using OnlineBookstore.Models
+@model SortedByGenreViewModel
+
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/shop-homepage.css" rel="stylesheet">
+
+
 <html>
 <body>
     <h2> Book List  </h2><hr />&nbsp;
@@ -11,18 +17,17 @@
             <div class="col-md-3">
 
                 <h3>Genre</h3><hr />
-
-                @Html.Partial("GenreMenu")
+                <!--Html.Partial("_GenreMenu")-->
             </div>
          
         <div claass="row">
             <div class="col-md-9">
-                <h3> Selected Genre </h3>
+                
+                <h3> Selected Genre : @Model.genre </h3>
 
-                @Html.Partial("_MarketBookThumnailPartial") 
-                @Html.Partial("_MarketBookThumnailPartial") 
-                @Html.Partial("_MarketBookThumnailPartial") 
-
+                   
+                
+                
 
             </div>
 

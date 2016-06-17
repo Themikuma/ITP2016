@@ -1,5 +1,10 @@
 ﻿<link href="~/Content/bootstrap.min.css" rel="stylesheet">
 <link href="~/Content/shop-homepage.css" rel="stylesheet">
+@using OnlineBookstore.Models
+@model OrderPageViewModel
+
+
+
 <html>
 <body>
     <h2> Cart List  </h2><hr />&nbsp;
@@ -8,14 +13,7 @@
 
         <div class="row">
 
-            <div class="col-md-3">
-
-                <h3>Genre</h3><hr />
-
-                @Html.Partial("GenreMenu")
-            </div>
-
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="table-responsive">
                     <div class="title">
                         <p><font size="5"><b>Order Lists</b></font></p><hr />
@@ -25,7 +23,7 @@
                             <tr>
 
                                 <td>
-                                    No
+                                    BookImage
                                 </td>
                                 <td>
                                     Book Name
@@ -41,19 +39,28 @@
                         </thead>
 
                         <tbody>
-                            @for (int i = 1; i < 8; i++)
-            {
+                        @foreach (var item in Model.OrderPageModel)
+                              {
                                 <tr>
-
-                                    <td>@i</td>
-                                    <td>Book image with book name <br /></td>
-                                    <td>blah blah </td>
-                                    <td>10euro</td>
+                                    <td><img src="@Url.Action("GetLocalImage", "Images", new { imageName = item.Picture})" /> </td>
+                                    <td>@item.Title<br /> @Html.ActionLink("Delete", "DeleteCartList", "Market", new { id = item }) </td>
+                                    <td>@item.Description </td>
+                                    <td>@item.Price  €</td>
                                 </tr>
                             }
                         </tbody>
                     </table>
-                </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12" align="right">
+                            <font size="5">Total Price  :</font>
+                            <font size="5">
+                                <b>@Model.TotalPrice € </b>
+                            </font>
+                        
+                    </div>
+                    </div>
+
 
                 <br /><br />
 
@@ -62,55 +69,64 @@
                     <font size="5"><b>Shipping information</b></font><hr />
 
                     <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            E-mail :
+                        @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                           @Html.TextBoxFor(m => m.LastName , new { @class = "form-control" })
+                           @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            First Name :
+                        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.FirstName , new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            Last Name :
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            Address :
+                        @Html.LabelFor(m => m.Country, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Country, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            Country :
+                        @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            ZipCode :
+                        @Html.LabelFor(m => m.ZipCode, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.ZipCode, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            PhoneNumber :
+                        @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     
                     <br />
                     <br />
 
-                    <div class="col-md-12 " align="right">
-                        <font size="5">Total Price :</font>
-                        <font size="5">
-                            <b>  </b>
-                        </font>
                     </div>
 
                  <br /><br />
@@ -131,7 +147,7 @@
 
 
         </div>
-    </div>
+
 </body>
 </html>
 
