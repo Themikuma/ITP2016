@@ -20,12 +20,28 @@
                 <div class="col-md-3">
                     <h2>Search Book</h2> <hr />
                     <div class="row">
+<<<<<<< HEAD
                         <div class="form-group" align="center">
 
                             <div class="form-group" align="center">
                                 @Html.TextBox("filterText", "", new { @class = "form-control", @placeholder = "Filter books" })
                                 Select options you want to search
                             </div>
+=======
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search book">
+                        </div>
+
+                        <div class="form-group" align="center">
+                            
+                            <input type="radio" name="SearchOption" value="genre" >genre
+                            <input type="radio" name="SearchOption" value="Isbn" >Isbn
+                            <input type="radio" name="SearchOption" value="Title" checked>Title
+                            <input type="radio" name="SearchOption" value="Author" >Author
+                          
+                        </div>
+>>>>>>> bafb85936aaba3e7d52e5d2855375343fcde4ed6
 
                             <div class="form-group" align="center">
                                 Title

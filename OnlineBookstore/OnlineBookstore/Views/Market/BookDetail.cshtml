@@ -1,0 +1,52 @@
+﻿@using OnlineBookstore.Models
+@model BookDatailsViewModel
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/shop-homepage.css" rel="stylesheet">
+
+ <html>
+ <body>
+        <h2> Book List  </h2><hr />&nbsp;
+        <!-- Page Content -->
+     <div class="container">
+         <div class="row">
+             <div class="col-md-3">
+             </div>
+             <div class="col-md-9">
+                 <div class="thumbnail">
+                     <img src="@Url.Action("GetLocalImage", "Images", new { imageName = Model.Picture })" alt="" />
+                     <div class="caption-full">
+                         <h4 class="pull-right">@Model.Price</h4>
+                         <h4>@Model.Title</h4>
+                         <p>@Model.Author</p>
+                         <p>Isbn : @Model.Isbn</p>
+                         <p>Pages : @Model.Pages</p>
+                         
+                         <p>Book Details<br />@Model.Description</p>
+                      </div>
+                     <div class="ratings">
+                         <p class="pull-right">@Model.BookReviews.Count Reviews</p>
+                         <p>
+                             @for(int i = 0; i < Model.Stars; i++)
+                             {
+                               <span class="glyphicon glyphicon-star"></span>
+                          
+                             }
+                             @for (int i = 0; i < (5 - Model.Stars); i++)
+                             {
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                             }
+                             @Model.Stars Stars
+                         </p>
+                     </div>
+
+                 </div>
+
+
+
+
+</div>
+              </div>
+         </div>
+    </body>
+</html>
