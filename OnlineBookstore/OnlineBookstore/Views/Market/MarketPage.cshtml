@@ -21,26 +21,17 @@
                     <h2>Search Book</h2> <hr />
                     <div class="row">
 
-
-                        <div class="form-group" align="center">
-                            @Html.TextBoxFor(m => m.SearchBook, new { @class = "form-control" , @placeholder = "SearchBook" })
-                            @Html.ValidationMessageFor(m => m.SearchBook, "", new { @class = "text-danger" })
-                            Select options you want to search
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search book">
                         </div>
 
                         <div class="form-group" align="center">
-                            Title
-                            @Html.RadioButtonFor(m => m.SelectedSearchOption, "Title", new { @checked = true })
-                            Author
-                            @Html.RadioButtonFor(m => m.SelectedSearchOption, "Author")
-                            Isbn
-                            @Html.RadioButtonFor(m => m.SelectedSearchOption, "Isbn")
                             
-                  
-                            @Html.ValidationMessageFor(m => m.SelectedSearchOption, "", new { @class = "text-danger" })
-                               
-
-                            
+                            <input type="radio" name="SearchOption" value="genre" >genre
+                            <input type="radio" name="SearchOption" value="Isbn" >Isbn
+                            <input type="radio" name="SearchOption" value="Title" checked>Title
+                            <input type="radio" name="SearchOption" value="Author" >Author
+                          
                         </div>
 
 
