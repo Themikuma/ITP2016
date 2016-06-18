@@ -40,25 +40,11 @@ namespace OnlineBookstore.Controllers
             //genre3.Add(new BookPreviewViewModel { Description = "More Business", Picture = "HolderCover.jpg", Price = 11, Stars = 2, Title = "Business2", Quantity = 12 });
             //genre3.Add(new BookPreviewViewModel { Description = "Blah Business", Picture = "HolderCover.jpg", Price = 22.11, Stars = 3, Title = "Business3", Quantity = 12 });
             //model.BooksByGenres.Add("Business", genre3);
+
+
             return View(model);
         }
 
-        public ActionResult MarketPageSortedByGenre(string id)
-        {
-
-            SortedByGenreViewModel model = new SortedByGenreViewModel();
-            List<string> genreList = new List<string>();
-            genreList.Add("Fiction");
-            genreList.Add("Science");
-            genreList.Add("Business");
-            genreList.Add("Art");
-            genreList.Add("Biography");
-            model.GenreList = genreList;
-            model.genre = id;
-            // Find selectedGenre from database
-            return View(model);
-
-        }
 
         // Bring the books from cart database, this is the example
 
