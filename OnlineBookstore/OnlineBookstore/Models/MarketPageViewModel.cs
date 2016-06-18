@@ -12,10 +12,6 @@ namespace OnlineBookstore.Models
         public List<BookPreviewViewModel> BestSellers { get; set; }
 
         public Dictionary<string, List<BookPreviewViewModel>> BooksByGenres;
-
-        public List<string> GenreList;
-
-        public string genre { get; set; }
     }
 
     public class SortedByGenreViewModel
