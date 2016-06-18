@@ -12,24 +12,6 @@ namespace OnlineBookstore.Models
         public List<BookPreviewViewModel> BestSellers { get; set; }
 
         public Dictionary<string, List<BookPreviewViewModel>> BooksByGenres;
-<<<<<<< HEAD
-    }
-=======
-
-
-        public string SearchTitle { get; set; }
->>>>>>> 8ac9c28dc0e185a35cc3d9f163aa982733eb7a68
-
-        public string SearchAuthor { get; set; }
-
-        public string SearchIsbn { get; set; }
-
-        [Required]
-        public string SelectedSearchOption { get; set; }
-
-        [Required]
-        public string SearchBook { get; set; }
-
     }
 
 
