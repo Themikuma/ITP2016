@@ -112,6 +112,7 @@
   <ItemGroup>
     <Compile Include="AccountModels\ApplicationUser.cs" />
     <Compile Include="BookstoreModels\Book.cs" />
+    <Compile Include="BookstoreModels\OrderItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

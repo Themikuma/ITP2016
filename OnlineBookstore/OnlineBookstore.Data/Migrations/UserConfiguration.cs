@@ -5,15 +5,16 @@ namespace OnlineBookstore.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class UserConfiguration : DbMigrationsConfiguration<UserDbContext>
+    internal sealed class UserConfiguration : DbMigrationsConfiguration<Data.DbContext>
     {
         public UserConfiguration()
         {
             AutomaticMigrationsEnabled = true;
             ContextKey = "UserDbContext";
+            AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(UserDbContext context)
+        protected override void Seed(Data.DbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

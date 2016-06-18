@@ -21,10 +21,6 @@
                     <table class="table">
     <thead>
         <tr>
-
-            <td>
-                Book Image
-            </td>
             <td>
                 Book Name
             </td>
@@ -43,9 +39,7 @@
              @foreach(var item in Model.CartList)
             {
                  <tr>
-                     
-                     <td><img src="@Url.Action("GetLocalImage", "Images", new { imageName = item.Picture})" /> </td>
-                     <td>@item.Title<br /> @Html.ActionLink("Delete", "DeleteCartList", "Market", new { id = item }) </td>
+                     <td>@item.Title<br /> @Html.ActionLink("Delete", "DeleteCartItem", "Market", new { id = item }) </td>
                      <td>@item.Description </td>
                      <td>@item.Price  €</td>
                  </tr>

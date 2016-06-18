@@ -9,19 +9,13 @@ namespace OnlineBookstore.Models
 
     public class MarketPageViewModel
     {
-        public BookPreviewViewModel BestSellerOne { get; set; }
-
-        public BookPreviewViewModel BestSellerTwo { get; set; }
-
-        public BookPreviewViewModel BestSellerThree { get; set; }
+        public List<BookPreviewViewModel> BestSellers { get; set; }
 
         public Dictionary<string, List<BookPreviewViewModel>> BooksByGenres;
 
         public List<string> GenreList;
 
         public string genre { get; set; }
-
-
     }
 
     public class SortedByGenreViewModel
@@ -79,8 +73,5 @@ namespace OnlineBookstore.Models
         [Display(Name = "Phone Number")]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
-
-
-
     }
 }
