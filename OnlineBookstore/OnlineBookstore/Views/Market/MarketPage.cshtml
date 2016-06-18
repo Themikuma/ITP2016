@@ -20,34 +20,23 @@
                 <div class="col-md-3">
                     <h2>Search Book</h2> <hr />
                     <div class="row">
-
-
                         <div class="form-group" align="center">
-                            @Html.TextBoxFor(m => m.SearchBook, new { @class = "form-control" , @placeholder = "SearchBook" })
-                            @Html.ValidationMessageFor(m => m.SearchBook, "", new { @class = "text-danger" })
-                            Select options you want to search
-                        </div>
 
-                        <div class="form-group" align="center">
-                            Title
-                            @Html.RadioButtonFor(m => m.SelectedSearchOption, "Title", new { @checked = true })
-                            Author
-                            @Html.RadioButtonFor(m => m.SelectedSearchOption, "Author")
-                            Isbn
-                            @Html.RadioButtonFor(m => m.SelectedSearchOption, "Isbn")
-                            
-                  
-                            @Html.ValidationMessageFor(m => m.SelectedSearchOption, "", new { @class = "text-danger" })
-                               
+                            <div class="form-group" align="center">
+                                @Html.TextBox("filterText", "", new { @class = "form-control", @placeholder = "Filter books" })
+                                Select options you want to search
+                            </div>
 
-                            
-                        </div>
+                            <div class="form-group" align="center">
+                                Title
+                                @Html.RadioButtonFor(t => t.FilterBy, 1)
+                                Author
+                                @Html.RadioButtonFor(t => t.FilterBy, 2)
+                                Genre
+                                @Html.RadioButtonFor(t => t.FilterBy, 3)
+                            </div>
+                            <input type="submit" class="btn btn-default" value="Search" />
 
-
-                        <div class="form-group" align="center" >
-                            
-                                <input type="submit" class="btn btn-default" value="Search" />
-                            
                         </div>
 
                     </div>

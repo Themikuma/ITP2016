@@ -1,13 +1,18 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineBookstore.Models.BookstoreModels
 {
     public class Book
     {
-        [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
         [Key]
-        public int Isbn { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [StringLength(10, MinimumLength = 10)]
+        public string Isbn { get; set; }
 
         [Required]
         public float Price { get; set; }
@@ -35,7 +40,7 @@ namespace OnlineBookstore.Models.BookstoreModels
         [MaxLength(255)]
         public string Title { get; set; }
 
-        [MaxLength(500)]
+        [MaxLength(1500)]
         public string Description { get; set; }
 
         [MaxLength(255)]

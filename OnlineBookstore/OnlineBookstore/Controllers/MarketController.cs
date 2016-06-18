@@ -10,12 +10,21 @@ namespace OnlineBookstore.Controllers
     public class MarketController : Controller
     {
         // GET: Market
-        public ActionResult MarketPage()
+        public ActionResult MarketPage(int? filterBy, string filterText)
         {
             Repository repository = new Repository();
 
             MarketPageViewModel model = new MarketPageViewModel();
-            model.BooksByGenres = repository.GetBooksByGenre("");
+            switch (filterBy)
+            {
+                case 1: break;
+                case 2: break;
+                case 3: model.BooksByGenres = repository.GetBooksByGenre(filterText);
+                    break;
+                default:
+                    model.BooksByGenres = repository.GetAllBooks();
+                    break;
+            }
             model.BestSellers = new List<BookPreviewViewModel>();
 
             //model.BooksByGenres = new Dictionary<string, List<BookPreviewViewModel>>();

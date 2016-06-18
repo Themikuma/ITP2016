@@ -17,9 +17,15 @@ namespace OnlineBookstore
             context = new DbContext();
         }
 
-        public Dictionary<string, List<BookPreviewViewModel>> GetBooksByGenre(string genre)
+        public Dictionary<string, List<BookPreviewViewModel>> GetAllBooks()
         {
-            var books = context.Books.Where(t => t.Genre.Contains(genre));
+            var books = context.Books;
+            return GroupBooksByGenre(books);
+
+        }
+
+        private Dictionary<string, List<BookPreviewViewModel>> GroupBooksByGenre(IEnumerable<Book> books)
+        {
             Dictionary<string, List<BookPreviewViewModel>> result = new Dictionary<string, List<BookPreviewViewModel>>();
             foreach (var book in books)
             {
@@ -32,10 +38,22 @@ namespace OnlineBookstore
                 {
                     booksInGenre = new List<BookPreviewViewModel>();
                 }
-                booksInGenre.Add(new BookPreviewViewModel(book.Price, book.Picture, book.Title, book.Genre, book.Description, 3, book.Quantity));
+                booksInGenre.Add(new BookPreviewViewModel(book.Price, book.Picture, book.Title,
+                    book.Genre, book.Description, book.Stars, book.Quantity));
                 result[book.Genre] = booksInGenre;
             }
             return result;
+
+        }
+
+        public Dictionary<string, List<BookPreviewViewModel>> GetBooksByGenre(string genre)
+        {
+            if (string.IsNullOrEmpty(genre))
+            {
+                genre = "";
+            }
+            var filtered = context.Books.Where(t => t.Genre.Contains(genre));
+            return GroupBooksByGenre(filtered);
         }
     }
 }

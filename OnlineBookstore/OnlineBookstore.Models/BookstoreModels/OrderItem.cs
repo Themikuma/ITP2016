@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,10 +16,11 @@ namespace OnlineBookstore.Models.BookstoreModels
 
         [Required]
         public string UserId { get; set; }
-
+        
         public virtual Book Book { get; set; }
 
         [Required]
-        public int BookId { get; set; }
+        [ForeignKey("Book")]
+        public string BookIsbn { get; set; }
     }
 }

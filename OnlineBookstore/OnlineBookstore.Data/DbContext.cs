@@ -16,9 +16,9 @@ namespace OnlineBookstore.Data
                 <DbContext, UserConfiguration>());
         }
 
-        public DbSet<Book> Books;
+        public virtual DbSet<Book> Books { get; set; }
 
-        public DbSet<OrderItem> Orders;
+        public virtual DbSet<OrderItem> Orders { get; set; }
 
         public static DbContext Create()
         {

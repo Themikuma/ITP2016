@@ -12,6 +12,8 @@ namespace OnlineBookstore.Models
         public List<BookPreviewViewModel> BestSellers { get; set; }
 
         public Dictionary<string, List<BookPreviewViewModel>> BooksByGenres;
+
+        public int FilterBy { get; set; }
     }
 
 
