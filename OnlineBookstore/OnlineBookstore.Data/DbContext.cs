@@ -1,23 +1,28 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using OnlineBookstore.Data.Migrations;
 using OnlineBookstore.Models;
+using OnlineBookstore.Models.BookstoreModels;
 using System.Data.Entity;
 
 namespace OnlineBookstore.Data
 {
-    public class UserDbContext : IdentityDbContext<ApplicationUser>
+    public class DbContext : IdentityDbContext<ApplicationUser>
     {
-        public UserDbContext()
+        public DbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
             Database.SetInitializer(
                 new MigrateDatabaseToLatestVersion
-                <UserDbContext, UserConfiguration>());
+                <DbContext, UserConfiguration>());
         }
 
-        public static UserDbContext Create()
+        public DbSet<Book> Books;
+
+        public DbSet<OrderItem> Orders;
+
+        public static DbContext Create()
         {
-            return new UserDbContext();
+            return new DbContext();
         }
     }
 }
