@@ -2,22 +2,41 @@
 @model IEnumerable<CartViewModel>
 @{float totalPrice = 0; }
 
+@{
+    ViewBag.Title = "Cart List";
+}
 <link href="~/Content/bootstrap.min.css" rel="stylesheet">
 <link href="~/Content/shop-homepage.css" rel="stylesheet">
 <html>
 <body>
-    <h2> Cart List  </h2><hr />&nbsp; 
-    <!-- Page Content -->
+    <style>
+    img {
+    max-width: 80px;
+    max-height : 160px;
+    }
+</style>
     <div class="container">
 
         <div class="row">
 
             <div class="col-md-12">
+                <br />
+                <div class="col-md-12" align="center" style="background-color:floralwhite">
+                    <br /><br />
+                    <font face="verdana" size="5" color="#585858 "> Welcome to</font>
+                    <font face="verdana" size="6" color="#F80000  ">Read and Lead</font>
+                    <font face="verdana" size="5" color="#585858 "> bookstore!  </font>
+                    <br /><br /><br />
+                </div>
+
+                <div class="col-md-12">
+                    <h2 style="background-color:lemonchiffon">&nbsp;&nbsp;&nbsp;@ViewBag.Title</h2>
+                </div>
 
 
                 <div class="table-responsive">
                     <div class="Title">
-                        <p><font size="5"><b>Books list you selected in cart</b></font></p>
+                        <p><font size="5">&nbsp;&nbsp;&nbsp;Books list you selected in cart</font></p>
                     </div>
                     <table class="table">
     <thead>

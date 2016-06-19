@@ -73,6 +73,7 @@ namespace OnlineBookstore.Controllers
             return View(model);
         }
 
+<<<<<<< HEAD
         public ActionResult DeleteCartItem(int id)
         {
             Repository repository = new Repository();
@@ -85,6 +86,11 @@ namespace OnlineBookstore.Controllers
             Repository repository = new Repository();
             repository.CreateOrder(User.Identity.GetUserId(), isbn);
             return RedirectToAction("CartList");
+=======
+        public ActionResult OrderSuccess()
+        {
+            return View();
+>>>>>>> b6845f9508b691328831f6da472e5b02e6b85c7b
         }
 
     }
