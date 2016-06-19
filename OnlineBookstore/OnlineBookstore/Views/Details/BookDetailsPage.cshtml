@@ -3,6 +3,14 @@
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/shop-homepage.css" rel="stylesheet">
+<style>
+    img {
+        max-width: 300px;
+        width:200px;
+        max-height: 200px;
+        height:100px;
+    }
+</style>
 
 <!DOCTYPE html>
 <html>
@@ -11,7 +19,7 @@
     <meta charset="utf-8" />
 </head>
 <body>
-    <h2>Model.Genre -<font face="Time New Roman" size="5"> @Model.Title  </font></h2> <hr />&nbsp;
+    <h2 style="background-color:floralwhite">Model.Genre -<font face="Time New Roman" size="5"> @Model.Title  </font></h2> <hr />&nbsp;
 
     <div class="container">
 
@@ -21,9 +29,9 @@
 
                     <div class="thumbnail" align="center">
 
-                        <!-- <img src="Url.Action(" GetLocalImage", new { imageName=Model.BestSellerOne.Picture}; alt="" )/> -->
+                        
                         <div class="caption-full" align="left">
-
+                            <img src="@Url.Action("GetLocalImage", "Images", new { imageName = Model.Picture })" alt="" />
                             <h4>Title of the Book</h4>
                             <font face="Time New Roman" size="3">@Model.Title</font>
                             <h4>Author</h4>
@@ -35,7 +43,7 @@
                                 <font face="Time New Roman"> @Model.Isbn </font>
                             </p>
                             <h4>Descripton: </h4>
-                            <p><font face="Time New Roman"> @Model.Description</font></p>
+                            <div class="target"><font face="Time New Roman"> @Model.Description</font></div>
                             <br />
                             @for (int i = 0; i < Model.Stars; i++)
                             {
@@ -58,14 +66,14 @@
                         <div class="col-md-offset-2">
                             @if (Model.Quantity != 0)
                             {
-                                <input type="button" class="btn btn-primary btn-lg" value="Add to Cart" />
+                                <input type="button" class="btn btn-primary btn-lg" value="Add to Cart" onclick="location='/Market/OrderPage'"/>
                             }
 
                             @if (Model.Quantity == 0)
                             {
                                 <input type="button" class="btn btn-disabled btn-lg " value="Sold Out" />
                             }
-                                <input type="button" class="btn btn-default btn-lg" value="Cancel" onclick="location='~/Market/MarketPage'" />
+                                <input type="button" class="btn btn-default btn-lg" value="Cancel" onclick="location='/Market/MarketPage'" />
                             
                         </div>
 

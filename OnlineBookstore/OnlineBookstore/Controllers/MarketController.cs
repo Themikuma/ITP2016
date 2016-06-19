@@ -96,5 +96,10 @@ namespace OnlineBookstore.Controllers
             return View(model);
         }
 
+        public ActionResult OrderSuccess()
+        {
+            return View();
+        }
+
     }
 }

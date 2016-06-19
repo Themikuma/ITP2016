@@ -7,47 +7,49 @@
 @*<link href="\Scripts\materializecss\materialize\css" rel="stylesheet" />*@
 
 @using Microsoft.AspNet.Identity
-
+<style>
+    img {
+        max-width: 400px;
+        width: 200px;
+        max-height : 400px;
+        height: 200px;
+    }
+</style>
 
 <html>
 <body>
-
+    
     <!-- Page Content -->
     <div class="container">
-        <br /><br />
-        <div class="row">
-            <div class="col-md-12" align="center">
-                <font face="verdana" size="4" color="#585858 "> Welcome to</font>
-                <font face="verdana" size="5" color="#F80000  ">Read and Lead</font>
-                <font face="verdana" size="4" color="#585858 "> bookstore!  </font>
-                
-            </div>
 
+        <div class="row">
+            <div class="col-md-12">
+               <br /><br />
+                <div class="col-md-12" align="center" style="background-color:floralwhite">
+                    <br /><br />
+                    <font face="verdana" size="5" color="#585858 "> Welcome to</font>
+                    <font face="verdana" size="6" color="#F80000  ">Read and Lead</font>
+                    <font face="verdana" size="5" color="#585858 "> bookstore!  </font>
+                    <br /><br /><br />
+                </div>
+
+
+            </div>
             <div class="col-md-12 pull-right" align="right">
 
-                @if (Request.IsAuthenticated)
+                @if (Request.IsAuthenticated == false)
                 {
-                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-                    {
-                        @Html.AntiForgeryToken()
-
-                        <font size="3">@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</font>
-
-                        <br />
-                        
-                    }
-                }
-                else { 
                 <input type="button" class="btn btn-warning btn -lg" value="Sign in" onclick="location='/Account/Login'" />
                 <input type="button" class="btn btn-default btn -lg" value="New here? Creat a account!" onclick="location='/Account/Register'" />
                 }
+
                 <br /><br /><br /><br />
             </div>
 
             @using (Html.BeginForm("MarketPage", "Market", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
-                <div class="col-md-3">
-                    <font face="Verdana" size="5">Search Book</font> <hr />
+                <div class="col-md-3 well">
+                    <font face="Verdana" size="5" >Search Book</font> <hr />
                     <div class="row">
                         <div class="form-group" align="center">
 
@@ -71,7 +73,8 @@
                 </div>
             }
 
-            <div class="col-md-9">
+            <div class="col-md-9" >
+                <font face="Verdana" size="5" > Best seller Top3 </font> <hr />
                     <div class="row carousel-holder">
                         <!-- Best seller -->
                         <div class="row">
@@ -85,7 +88,7 @@
                                     @foreach (var bestseller in Model.BestSellers)
                                     {
                                         <div class="item active">
-                                            <img src="@Url.Action("GetLocalImage", "Images", new { imageName = bestseller.Picture})" alt="" / alt="" />
+                                            <img src="@Url.Action("GetLocalImage", "Images", new { imageName = bestseller.Picture})" alt="" />
                                         </div>
                                     }
                                     @*<div class="item">
@@ -116,7 +119,7 @@
                     {
                         <div class="row carousel-holder">
                             <br /><br />
-                            <font size="5"> <span style="color:black">@genre.Key</span></font><hr />
+                            <font face="Verdana" size="5">&nbsp;@genre.Key</font><hr />
                             @foreach (var item in genre.Value)
                             {
                                 @Html.Partial("_MarketBookThumnailPartial", item)

@@ -26,12 +26,6 @@
                 }
                 @Html.Partial("_LoginPartial")
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        @Html.ActionLink(" Home ", "MarketPage", "Market", new { area = "" })
-
-                    </li>
-                </ul>
 
 
 
@@ -42,6 +36,8 @@
     <div class="container body-content">
         @RenderBody()
         <footer>
+            <br /><br /><br />
+            <hr />
             <p>&copy; @DateTime.Now.Year - Read and lead</p>
         </footer>
     </div>
