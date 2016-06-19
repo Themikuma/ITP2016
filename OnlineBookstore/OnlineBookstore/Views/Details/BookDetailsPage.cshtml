@@ -11,12 +11,12 @@
     <meta charset="utf-8" />
 </head>
 <body>
-    <h2> @Model.Genre - @Model.Title   </h2><hr />&nbsp;
+    <h2>Model.Genre -<font face="Time New Roman" size="5"> @Model.Title  </font></h2> <hr />&nbsp;
 
     <div class="container">
 
 
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="row" align="center">
 
                     <div class="thumbnail" align="center">
@@ -25,27 +25,28 @@
                         <div class="caption-full" align="left">
 
                             <h4>Title of the Book</h4>
-                            @Model.Title
+                            <font face="Time New Roman" size="3">@Model.Title</font>
                             <h4>Author</h4>
-                            <p>@Model.Author</p>
+                            <p><font face="Time New Roman">@Model.Author</font></p>
                             <h4>Price</h4>
-                            <p>@Model.Price €</p>
+                            <p><font face="Time New Roman"> @Model.Price € </font></p>
                             <h4>ISBN:</h4>
                             <p>
-                                @Model.Isbn
-                                <h4>Descripton: </h4>
-                            <p>@Model.Description</p>
+                                <font face="Time New Roman"> @Model.Isbn </font>
+                            </p>
+                            <h4>Descripton: </h4>
+                            <p><font face="Time New Roman"> @Model.Description</font></p>
                             <br />
                             @for (int i = 0; i < Model.Stars; i++)
                             {
-                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star" style="color:red"></span>
                             }
                             @for (int i = 0; i < (5 - Model.Stars); i++)
                             {
-                                <span class="glyphicon glyphicon-star-empty"></span>
+                                <span class="glyphicon glyphicon-star-empty" style="color:red"></span>
                             }
                             @Model.Stars stars
-                            </div>     
+</div>     
                         </div>
                     </div>
 
@@ -53,7 +54,7 @@
                     
                     <br />
 
-                    <div class="form-group" align="center">
+                    <div class="form-group" align="right">
                         <div class="col-md-offset-2">
                             @if (Model.Quantity != 0)
                             {
@@ -82,7 +83,7 @@
                             #goodreads-widget {
                                 font-family: georgia, serif;
                                 padding: 18px 0;
-                                width: 565px;
+                                width: 1000px;
                             }
 
                                 #goodreads-widget h1 {
@@ -98,7 +99,7 @@
                                 }
 
                             iframe {
-                                background-color: #fff;
+                                background-color: #ffffff;
                             }
 
                             #goodreads-widget a:hover {
@@ -123,14 +124,12 @@
                             }
                         </style>
                         <div id="goodreads-widget">
-                            <div id="gr_header"><h1><a href="http://www.goodreads.com/book/show/2956.The_Adventures_of_Huckleberry_Finn">Goodreads reviews for The Adventures of Huckleberry Finn</a></h1></div>
-                            <iframe id="the_iframe" src="http://www.goodreads.com/api/reviews_widget_iframe?did=DEVELOPER_ID&format=html&header_text=Goodreads+reviews+for+The+Adventures+of+Huckleberry+Finn&isbn=0142437174&links=660&review_back=fff&stars=000&text=000" width="565" height="400" frameborder="0"></iframe>
+                            <div id="gr_header"><h1><a href="https://www.goodreads.com/book/show/2956.The_Adventures_of_Huckleberry_Finn">Goodreads reviews</a></h1></div>
+                            <iframe id="the_iframe" src="https://www.goodreads.com/api/reviews_widget_iframe?did=DEVELOPER_ID&format=html&header_text=Goodreads+reviews&isbn=0142437174&links=660&min_rating=0&num_reviews=5&review_back=ffffff&stars=ff0000&stylesheet=&text=444" width="1000" height="400" frameborder="0"></iframe>
                             <div id="gr_footer">
-                                <a class="gr_branding" target="_blank" href="http://www.goodreads.com/book/show/2956.The_Adventures_of_Huckleberry_Finn?utm_medium=api&utm_source=reviews_widget">Reviews from Goodreads.com</a>
+                                <a class="gr_branding" target="_blank" href="https://www.goodreads.com/book/show/2956.The_Adventures_of_Huckleberry_Finn?utm_medium=api&utm_source=reviews_widget">Reviews from Goodreads.com</a>
                             </div>
                         </div>
-
-
                     </p>
                 </div>
                 

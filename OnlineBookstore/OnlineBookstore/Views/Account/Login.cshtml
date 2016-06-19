@@ -4,8 +4,20 @@
     ViewBag.Title = "Log in";
 }
 
-<h2>@ViewBag.Title.</h2>
+
+<br /><br />
+<div class="col-md-12" align="center">
+    <font face="verdana" size="4" color="#585858 "> Welcome to</font>
+    <font face="verdana" size="5" color="#F80000  ">Read and Lead</font>
+    <font face="verdana" size="4" color="#585858 "> bookstore!  </font>
+
+</div>
+<br /><br />
+
+<h2>@ViewBag.Title</h2>
 <div class="row">
+    
+
     <div class="col-md-8">
         <section id="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -36,14 +48,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" align="left">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
+                        <input type="submit" value="Log in" class="btn btn-primary" />
+                        <input type="button" class="btn btn-default btn -lg" value="New here? Creat a account!" onclick="location='Register'" />
                     </div>
                 </div>
-                <p>
-                    @Html.ActionLink("Register as a new user", "Register")
-                </p>
                 @* Enable this once you have account confirmation enabled for password reset functionality
                     <p>
                         @Html.ActionLink("Forgot your password?", "ForgotPassword")
