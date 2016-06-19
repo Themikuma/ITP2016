@@ -15,57 +15,34 @@ namespace OnlineBookstore.Controllers
         {
             Repository repository = new Repository();
 
+            if (string.IsNullOrEmpty(filterText))
+            {
+                filterText = "";
+            }
             MarketPageViewModel model = new MarketPageViewModel();
             switch (filterBy)
             {
-                case 1: break;
-                case 2: break;
-                case 3: model.BooksByGenres = repository.GetBooksByGenre(filterText);
+                case 1:
+                    model.BooksByGenres = repository.GetBooksByTitle(filterText);
+                    break;
+                case 2:
+                    model.BooksByGenres = repository.GetBooksByAuthor(filterText);
+                    break;
+                case 3:
+                    model.BooksByGenres = repository.GetBooksByGenre(filterText);
                     break;
                 default:
                     model.BooksByGenres = repository.GetAllBooks();
                     break;
             }
             model.BestSellers = new List<BookPreviewViewModel>();
-
-            //model.BooksByGenres = new Dictionary<string, List<BookPreviewViewModel>>();
-
-            //model.BestSellerOne = new BookPreviewViewModel() { Description = "First best seller", Picture = "HolderCover.jpg", Price = 50, Stars = 4, Title = "Best book" };
-            //model.BestSellerTwo = new BookPreviewViewModel() { Description = "Second best seller", Picture = "Blades.jpg", Price = 30, Stars = 4, Title = "Second book" };
-            //model.BestSellerThree = new BookPreviewViewModel() { Description = "Third best seller", Picture = "shardblade.jpg", Price = 12.34, Stars = 4, Title = "Third book" };
-
-            //List<BookPreviewViewModel> genre1 = new List<BookPreviewViewModel>();
-            //genre1.Add(new BookPreviewViewModel { Description = "Fiction", Picture = "HolderCover.jpg", Price = 50, Stars = 4, Title = "Fiction One", Quantity = 3 });
-            //genre1.Add(new BookPreviewViewModel { Description = "More Fiction", Picture = "shardblade.jpg", Price = 32.64, Stars = 1, Title = "Fiction Two", Quantity = 5 });
-            //genre1.Add(new BookPreviewViewModel { Description = "Even more Fiction", Picture = "shardblade.jpg", Price = 12.32, Stars = 3, Title = "Fiction Three" });
-            //model.BooksByGenres.Add("Fiction", genre1);
-
-            //List<BookPreviewViewModel> genre2 = new List<BookPreviewViewModel>();
-            //genre2.Add(new BookPreviewViewModel { Description = "Science", Picture = "Blades.jpg", Price = 31.41, Stars = 4, Title = "Science One" });
-            //genre2.Add(new BookPreviewViewModel { Description = "More Science", Picture = "HolderCover.jpg", Price = 22.33, Stars = 3, Title = "Science Two", Quantity = 12 });
-            //model.BooksByGenres.Add("Science", genre2);
-
-            //List<BookPreviewViewModel> genre3 = new List<BookPreviewViewModel>();
-            //genre3.Add(new BookPreviewViewModel { Description = "Business", Picture = "Blades.jpg", Price = 15, Stars = 1, Title = "Business1" });
-            //genre3.Add(new BookPreviewViewModel { Description = "More Business", Picture = "HolderCover.jpg", Price = 11, Stars = 2, Title = "Business2", Quantity = 12 });
-            //genre3.Add(new BookPreviewViewModel { Description = "Blah Business", Picture = "HolderCover.jpg", Price = 22.11, Stars = 3, Title = "Business3", Quantity = 12 });
-            //model.BooksByGenres.Add("Business", genre3);
-
-
             return View(model);
         }
-
-        
-        //public JsonResult DeleteCartItem()
-        //{
-
-        //}
-
         [Authorize]
         public ActionResult CartList()
         {
             Repository repository = new Repository();
-            IEnumerable<CartViewModel> model = repository.GetUnfinishedOrders(User.Identity.GetUserId());            
+            IEnumerable<CartViewModel> model = repository.GetUnfinishedOrders(User.Identity.GetUserId());
 
             return View(model);
         }
@@ -94,6 +71,20 @@ namespace OnlineBookstore.Controllers
                 model.TotalPrice = model.TotalPrice + price;
             }
             return View(model);
+        }
+
+        public ActionResult DeleteCartItem(int id)
+        {
+            Repository repository = new Repository();
+            repository.DeleteCartItem(id);
+            return RedirectToAction("CartList");
+        }
+
+        public ActionResult OrderBook(string isbn)
+        {
+            Repository repository = new Repository();
+            repository.CreateOrder(User.Identity.GetUserId(), isbn);
+            return RedirectToAction("CartList");
         }
 
     }

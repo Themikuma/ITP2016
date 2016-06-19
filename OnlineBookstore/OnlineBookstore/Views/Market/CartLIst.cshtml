@@ -41,7 +41,7 @@
              {totalPrice += item.Price;
 
                  <tr>
-                     <td>@item.Title<br /> @Html.ActionLink("Delete", "DeleteCartItem", "Market", new { id = item }) </td>
+                     <td>@item.Title<br /> @Html.ActionLink("Delete", "DeleteCartItem", "Market", new { id = item.Id },"") </td>
                      <td>@item.Author </td>
                      <td>@item.Price  €</td>
                  </tr>

@@ -13,13 +13,19 @@
 <div class="col-sm-4 col-lg-4 col-md-4">
     <div class="thumbnail">
         <img src="@Url.Action("GetLocalImage", "Images", new { imageName = Model.Picture })" alt=""  />
-        @*<img src="http://placehold.it/320x150" alt="">*@
         <div class="caption">
             <h4 class="pull-right">@string.Format("{0:C2}", Model.Price) $</h4>
             <h4>
-                <a href="#">@Model.Title</a>  
+                @Html.ActionLink(Model.Title, "BookDetails", "Details", new { isbn = Model.Isbn },"")
             </h4>
-            <p>@Model.Description</p>
+            @if (Model.Description.Length < 200)
+            {
+                <p><font face="Time New Roman">@Model.Description</font></p>
+            }
+            else
+            {
+                <p><font face="Time New Roman"> @Model.Description.Substring(0, 200) @Html.ActionLink("See more...", "BookDetails", "Details", new { isbn = Model.Isbn }, "");</font></p>
+            }
         </div>
         <div class="ratings">
             <p>

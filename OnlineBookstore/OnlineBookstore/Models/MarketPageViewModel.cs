@@ -19,12 +19,14 @@ namespace OnlineBookstore.Models
 
     public class CartViewModel
     {
-        public CartViewModel(string title, string author, float price)
+        public CartViewModel(int id, string title, string author, float price)
         {
+            this.Id = id;
             this.Title = title;
             this.Author = author;
             this.Price = price;
         }
+        public int Id { get; set; }
 
         public string Title { get; set; }
 

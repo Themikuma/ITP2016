@@ -23,12 +23,29 @@ namespace OnlineBookstore
             return GroupBooksByGenre(books);
         }
 
+        public BookDetailsViewModel GetBookDetails(string isbn)
+        {
+            var book = context.Books.Single(t => t.Isbn == isbn);
+            BookDetailsViewModel bookModel = new BookDetailsViewModel(book.Price, book.Picture, book.Title, book.Genre,
+                book.Description, book.Stars, book.Quantity, book.Author, book.Isbn, book.Pages, book.GoodreadsLink);
+            return bookModel;
+            throw new NotImplementedException();
+        }
+
+        public Dictionary<string, List<BookPreviewViewModel>> GetBooksByTitle(string filterText)
+        {
+            var filtered = context.Books.Where(t => t.Title.Contains(filterText));
+            return GroupBooksByGenre(filtered);
+        }
+
+        public Dictionary<string, List<BookPreviewViewModel>> GetBooksByAuthor(string filterText)
+        {
+            var filtered = context.Books.Where(t => t.Author.Contains(filterText));
+            return GroupBooksByGenre(filtered);
+        }
+
         public Dictionary<string, List<BookPreviewViewModel>> GetBooksByGenre(string genre)
         {
-            if (string.IsNullOrEmpty(genre))
-            {
-                genre = "";
-            }
             var filtered = context.Books.Where(t => t.Genre.Contains(genre));
             return GroupBooksByGenre(filtered);
         }
@@ -47,7 +64,7 @@ namespace OnlineBookstore
                 {
                     booksInGenre = new List<BookPreviewViewModel>();
                 }
-                booksInGenre.Add(new BookPreviewViewModel(book.Price, book.Picture, book.Title,
+                booksInGenre.Add(new BookPreviewViewModel(book.Isbn, book.Price, book.Picture, book.Title,
                     book.Genre, book.Description, book.Stars, book.Quantity));
                 result[book.Genre] = booksInGenre;
             }
@@ -61,6 +78,14 @@ namespace OnlineBookstore
             newOrder.BookIsbn = isbn;
             newOrder.IsFinal = false;
             context.Orders.Add(newOrder);
+            context.SaveChanges();
+        }
+
+        public void DeleteCartItem(int id)
+        {
+            var toRemove = context.Orders.Single(t => t.Id == id);
+            context.Orders.Remove(toRemove);
+            context.SaveChanges();
         }
 
         public IEnumerable<CartViewModel> GetUnfinishedOrders(string userId)
@@ -69,7 +94,7 @@ namespace OnlineBookstore
             List<CartViewModel> result = new List<CartViewModel>();
             foreach (var order in orders)
             {
-                CartViewModel newOrder = new CartViewModel(order.Book.Title, order.Book.Author, order.Book.Price);
+                CartViewModel newOrder = new CartViewModel(order.Id, order.Book.Title, order.Book.Author, order.Book.Price);
                 result.Add(newOrder);
             }
             return result;

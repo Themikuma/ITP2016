@@ -1,5 +1,5 @@
 ﻿@using OnlineBookstore.Models
-@model BookDatailsViewModel
+@model BookDetailsViewModel
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/shop-homepage.css" rel="stylesheet">
@@ -9,13 +9,18 @@
 <head>
     <title></title>
     <meta charset="utf-8" />
+    <script type="text/javascript">
+        function orderBook(isbn) {
+            var location = "http://localhost:12311/Market/OrderBook?isbn=" + isbn;
+            window.location = location;
+        }
+    </script>
 </head>
 <body>
     <h2>Model.Genre -<font face="Time New Roman" size="5"> @Model.Title  </font></h2> <hr />&nbsp;
 
     <div class="container">
-
-
+        @{ string frameSource = "https://www.goodreads.com/api/reviews_widget_iframe?did=DEVELOPER_ID&format=html&header_text=Goodreads+reviews&isbn=" + Model.Isbn + "&links=660&min_rating=0&num_reviews=5&review_back=ffffff&stars=ff0000&stylesheet=&text=444";}
             <div class="col-md-12">
                 <div class="row" align="center">
 
@@ -29,7 +34,7 @@
                             <h4>Author</h4>
                             <p><font face="Time New Roman">@Model.Author</font></p>
                             <h4>Price</h4>
-                            <p><font face="Time New Roman"> @Model.Price € </font></p>
+                            <p><font face="Time New Roman"> @string.Format("{0:C2}", Model.Price) € </font></p>
                             <h4>ISBN:</h4>
                             <p>
                                 <font face="Time New Roman"> @Model.Isbn </font>
@@ -58,7 +63,7 @@
                         <div class="col-md-offset-2">
                             @if (Model.Quantity != 0)
                             {
-                                <input type="button" class="btn btn-primary btn-lg" value="Add to Cart" />
+                                <input type="button" class="btn btn-primary btn-lg" value="Add to cart" onclick="orderBook('@Model.Isbn')"/>
                             }
 
                             @if (Model.Quantity == 0)
@@ -124,10 +129,10 @@
                             }
                         </style>
                         <div id="goodreads-widget">
-                            <div id="gr_header"><h1><a href="https://www.goodreads.com/book/show/2956.The_Adventures_of_Huckleberry_Finn">Goodreads reviews</a></h1></div>
-                            <iframe id="the_iframe" src="https://www.goodreads.com/api/reviews_widget_iframe?did=DEVELOPER_ID&format=html&header_text=Goodreads+reviews&isbn=0142437174&links=660&min_rating=0&num_reviews=5&review_back=ffffff&stars=ff0000&stylesheet=&text=444" width="1000" height="400" frameborder="0"></iframe>
+                            <div id="gr_header"><h1><a target="_blank" href="@Model.GoodreadsLink">Full reviews </a></h1></div>
+                            <iframe id="the_iframe" src="@frameSource" width="1000" height="400" frameborder="0"></iframe>
                             <div id="gr_footer">
-                                <a class="gr_branding" target="_blank" href="https://www.goodreads.com/book/show/2956.The_Adventures_of_Huckleberry_Finn?utm_medium=api&utm_source=reviews_widget">Reviews from Goodreads.com</a>
+                                <a class="gr_branding" target="_blank"  href="@Model.GoodreadsLink">Reviews from Goodreads.com</a>
                             </div>
                         </div>
                     </p>

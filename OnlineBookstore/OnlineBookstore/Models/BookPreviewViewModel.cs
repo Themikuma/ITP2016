@@ -11,9 +11,10 @@ namespace OnlineBookstore.Models
         {
         }
 
-        public BookPreviewViewModel(float price, string picture, string title, string genre,
+        public BookPreviewViewModel(string isbn, float price, string picture, string title, string genre,
             string description, int stars, int quantity)
         {
+            this.Isbn = isbn;
             this.Price = price;
             this.Picture = picture;
             this.Title = title;
@@ -22,6 +23,9 @@ namespace OnlineBookstore.Models
             this.Stars = stars;
             this.Quantity = quantity;
         }
+
+        public string Isbn { get; set; }
+
         public double Price { get; set; }
 
         public string Picture { get; set; }

@@ -7,47 +7,48 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OnlineBookstore.Models
 {
-    public class BookDatailsViewModel { 
-    public BookDatailsViewModel()
+    public class BookDetailsViewModel
     {
-    }
+        public BookDetailsViewModel()
+        {
+        }
 
-    public BookDatailsViewModel(float price, string picture, string title, string genre,
-        string description, int stars, int quantity, string author, int isbn, int pages)
-    {
-        this.Price = price;
-        this.Picture = picture;
-        this.Title = title;
-        this.Genre = genre;
-        this.Description = description;
-        this.Stars = stars;
-        this.Quantity = quantity;
+        public BookDetailsViewModel(float price, string picture, string title, string genre,
+            string description, int stars, int quantity, string author, string isbn, int pages, string goodreadsLink)
+        {
+            this.Price = price;
+            this.Picture = picture;
+            this.Title = title;
+            this.Genre = genre;
+            this.Description = description;
+            this.Stars = stars;
+            this.Quantity = quantity;
             this.Author = author;
             this.Isbn = isbn;
             this.Pages = pages;
-
+            this.GoodreadsLink = goodreadsLink;
         }
-        [Required]
+
         public double Price { get; set; }
-        [Required]
+
         public string Picture { get; set; }
-        [Required]
+
         public string Title { get; set; }
-        [Required]
+
         public string Genre { get; set; }
-        [Required]
+
         public string Description { get; set; }
-        [Required]
+
         public int Stars { get; set; }
-        [Required]
+
         public int Quantity { get; set; }
-        [Required]
+
         public string Author { get; set; }
-        [Required]
-        public int Isbn { get; set; }
-        [Required]
+
+        public string Isbn { get; set; }
+
         public int Pages { get; set; }
-        [Required]
-        public string BookReviewsURL;
-}
+
+        public string GoodreadsLink { get; set; }
+    }
 }
