@@ -21,7 +21,6 @@ namespace OnlineBookstore
         {
             var books = context.Books;
             return GroupBooksByGenre(books);
-
         }
 
         public Dictionary<string, List<BookPreviewViewModel>> GetBooksByGenre(string genre)
@@ -82,6 +81,8 @@ namespace OnlineBookstore
             foreach (var order in orders)
             {
                 order.IsFinal = true;
+                order.Book.Sold++;
+                order.Book.Quantity--;
             }
             context.SaveChanges();
         }
