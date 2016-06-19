@@ -280,7 +280,6 @@
     <Content Include="Views\Shared\_CartPartial.cshtml" />
     <Content Include="Views\Shared\_SearchPartial.cshtml" />
     <Content Include="Views\Market\CartList.cshtml" />
-    <Content Include="Views\Market\MarketPageSortedByGenre.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Images\" />

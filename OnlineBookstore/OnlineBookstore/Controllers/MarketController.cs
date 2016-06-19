@@ -1,4 +1,5 @@
-﻿using OnlineBookstore.Models;
+﻿using Microsoft.AspNet.Identity;
+using OnlineBookstore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,22 +55,7 @@ namespace OnlineBookstore.Controllers
             return View(model);
         }
 
-
-        // Bring the books from cart database, this is the example
-
-        public CartListViewModel CartItems()
-        {
-            List<BookPreviewViewModel> CartList = new List<BookPreviewViewModel>();
-            CartList.Add(new BookPreviewViewModel { Description = "Fiction", Picture = "HolderCover.jpg", Price = 50, Stars = 4, Title = "Fiction One", Quantity = 3 });
-            CartList.Add(new BookPreviewViewModel { Description = "More Fiction", Picture = "shardblade.jpg", Price = 32.64, Stars = 1, Title = "Fiction Two", Quantity = 5 });
-            CartList.Add(new BookPreviewViewModel { Description = "Even more Fiction", Picture = "shardblade.jpg", Price = 12.32, Stars = 3, Title = "Fiction Three" });
-            CartListViewModel model = new CartListViewModel();
-            model.CartList = CartList;
-            model.TotalPrice = 0;
-            model.CartListAmount = model.CartList.Count;
-            return model;
-        }
-
+        
         //public JsonResult DeleteCartItem()
         //{
 
@@ -78,15 +64,8 @@ namespace OnlineBookstore.Controllers
         [Authorize]
         public ActionResult CartList()
         {
-            CartListViewModel model = CartItems();
-            // If click add cart, Add bookpreviewviewpage to cartlistbookviewmodel
-
-            foreach (var item in model.CartList)
-            {
-                double price = item.Price;
-                model.TotalPrice = model.TotalPrice + price;
-            }
-
+            Repository repository = new Repository();
+            IEnumerable<CartViewModel> model = repository.GetUnfinishedOrders(User.Identity.GetUserId());            
 
             return View(model);
         }
@@ -105,6 +84,8 @@ namespace OnlineBookstore.Controllers
 
         public ActionResult OrderPage()
         {
+            Repository repository = new Repository();
+            repository.FinishOrder(User.Identity.GetUserId());
             OrderPageViewModel model = addOrderList();
 
             foreach (var item in model.OrderPageModel)

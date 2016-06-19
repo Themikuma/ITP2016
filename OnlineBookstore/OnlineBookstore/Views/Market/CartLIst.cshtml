@@ -1,5 +1,6 @@
 ﻿@using OnlineBookstore.Models
-@model CartListViewModel
+@model IEnumerable<CartViewModel>
+@{float totalPrice = 0; }
 
 <link href="~/Content/bootstrap.min.css" rel="stylesheet">
 <link href="~/Content/shop-homepage.css" rel="stylesheet">
@@ -22,13 +23,13 @@
     <thead>
         <tr>
             <td>
-                Book Name
+                Title
             </td>
             <td>
-                Book Author
+                Author
             </td>
             <td>
-                Book Price
+                Price
             </td>
 
         </tr>
@@ -36,11 +37,12 @@
 
                <!-- Please add bringing book list from cart database and delete function -->
          <tbody>
-             @foreach(var item in Model.CartList)
-            {
+             @foreach (var item in Model)
+             {totalPrice += item.Price;
+
                  <tr>
                      <td>@item.Title<br /> @Html.ActionLink("Delete", "DeleteCartItem", "Market", new { id = item }) </td>
-                     <td>@item.Description </td>
+                     <td>@item.Author </td>
                      <td>@item.Price  €</td>
                  </tr>
              }
@@ -53,7 +55,7 @@
 
         <div class="col-md-12 " align="right"><font size="5">Total Price :</font>
                 <font size="5">
-                 <b> @Model.TotalPrice  €</b>
+                 <b> @totalPrice €</b>
              </font></div>
 
                 <br /><br />

@@ -15,6 +15,10 @@ namespace OnlineBookstore.Models.BookstoreModels
         public string Isbn { get; set; }
 
         [Required]
+        [MaxLength(255)]
+        public string Author { get; set; }
+
+        [Required]
         public float Price { get; set; }
 
         public int Sold { get; set; }

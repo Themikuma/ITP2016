@@ -16,11 +16,14 @@ namespace OnlineBookstore.Models.BookstoreModels
 
         [Required]
         public string UserId { get; set; }
-        
+
         public virtual Book Book { get; set; }
 
         [Required]
         [ForeignKey("Book")]
         public string BookIsbn { get; set; }
+
+        [Required]
+        public bool IsFinal { get; set; }
     }
 }
