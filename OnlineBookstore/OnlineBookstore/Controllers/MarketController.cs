@@ -96,23 +96,5 @@ namespace OnlineBookstore.Controllers
             return View(model);
         }
 
-        public ActionResult BookDetail()
-        {
-            BookDatailsViewModel model = new BookDatailsViewModel();
-            model.Description = "Good";
-            model.Genre = "Fiction";
-            model.Picture = "";
-            model.Price = 14;
-            model.Quantity = 12;
-            model.Stars = 3;
-            model.Title = "title ";
-            model.Author = "authorname";
-            model.Isbn = 1234567;
-            model.Pages = 300;
-            model.BookReviews.Add("not bad");
-            model.BookReviews.Add("So So");
-            return View(model);
-        }
-
     }
 }

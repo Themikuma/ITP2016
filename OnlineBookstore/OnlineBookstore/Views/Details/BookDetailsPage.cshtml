@@ -1,0 +1,140 @@
+﻿@using OnlineBookstore.Models
+@model BookDatailsViewModel
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/shop-homepage.css" rel="stylesheet">
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h2> @Model.Genre - @Model.Title   </h2><hr />&nbsp;
+
+    <div class="container">
+
+
+            <div class="col-md-9">
+                <div class="row" align="center">
+
+                    <div class="thumbnail" align="center">
+
+                        <!-- <img src="Url.Action(" GetLocalImage", new { imageName=Model.BestSellerOne.Picture}; alt="" )/> -->
+                        <div class="caption-full" align="left">
+
+                            <h4>Title of the Book</h4>
+                            @Model.Title
+                            <h4>Author</h4>
+                            <p>@Model.Author</p>
+                            <h4>Price</h4>
+                            <p>@Model.Price €</p>
+                            <h4>ISBN:</h4>
+                            <p>
+                                @Model.Isbn
+                                <h4>Descripton: </h4>
+                            <p>@Model.Description</p>
+                            <br />
+                            @for (int i = 0; i < Model.Stars; i++)
+                            {
+                                <span class="glyphicon glyphicon-star"></span>
+                            }
+                            @for (int i = 0; i < (5 - Model.Stars); i++)
+                            {
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            }
+                            @Model.Stars stars
+                            </div>     
+                        </div>
+                    </div>
+
+                <div class="row" align="center">
+                    
+                    <br />
+
+                    <div class="form-group" align="center">
+                        <div class="col-md-offset-2">
+                            @if (Model.Quantity != 0)
+                            {
+                                <input type="button" class="btn btn-primary btn-lg" value="Add to Cart" />
+                            }
+
+                            @if (Model.Quantity == 0)
+                            {
+                                <input type="button" class="btn btn-disabled btn-lg " value="Sold Out" />
+                            }
+                                <input type="button" class="btn btn-default btn-lg" value="Cancel" onclick="location='~/Market/MarketPage'" />
+                            
+                        </div>
+
+
+                    </div>
+
+                
+                </div>
+
+                <div class="row" align="center">
+
+                    <p>
+
+                        <style>
+                            #goodreads-widget {
+                                font-family: georgia, serif;
+                                padding: 18px 0;
+                                width: 565px;
+                            }
+
+                                #goodreads-widget h1 {
+                                    font-weight: normal;
+                                    font-size: 16px;
+                                    border-bottom: 1px solid #BBB596;
+                                    margin-bottom: 0;
+                                }
+
+                                #goodreads-widget a {
+                                    text-decoration: none;
+                                    color: #660;
+                                }
+
+                            iframe {
+                                background-color: #fff;
+                            }
+
+                            #goodreads-widget a:hover {
+                                text-decoration: underline;
+                            }
+
+                            #goodreads-widget a:active {
+                                color: #660;
+                            }
+
+                            #gr_footer {
+                                width: 100%;
+                                border-top: 1px solid #BBB596;
+                                text-align: right;
+                            }
+
+                            #goodreads-widget .gr_branding {
+                                color: #382110;
+                                font-size: 11px;
+                                text-decoration: none;
+                                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                            }
+                        </style>
+                        <div id="goodreads-widget">
+                            <div id="gr_header"><h1><a href="http://www.goodreads.com/book/show/2956.The_Adventures_of_Huckleberry_Finn">Goodreads reviews for The Adventures of Huckleberry Finn</a></h1></div>
+                            <iframe id="the_iframe" src="http://www.goodreads.com/api/reviews_widget_iframe?did=DEVELOPER_ID&format=html&header_text=Goodreads+reviews+for+The+Adventures+of+Huckleberry+Finn&isbn=0142437174&links=660&review_back=fff&stars=000&text=000" width="565" height="400" frameborder="0"></iframe>
+                            <div id="gr_footer">
+                                <a class="gr_branding" target="_blank" href="http://www.goodreads.com/book/show/2956.The_Adventures_of_Huckleberry_Finn?utm_medium=api&utm_source=reviews_widget">Reviews from Goodreads.com</a>
+                            </div>
+                        </div>
+
+
+                    </p>
+                </div>
+                
+      </div>
+    </div>
+</body>
+</html>

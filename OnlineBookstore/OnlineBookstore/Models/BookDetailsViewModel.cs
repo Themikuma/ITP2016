@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace OnlineBookstore.Models
 {
     public class BookDatailsViewModel { 
@@ -26,26 +27,27 @@ namespace OnlineBookstore.Models
             this.Pages = pages;
 
         }
-    public double Price { get; set; }
-
-    public string Picture { get; set; }
-
-    public string Title { get; set; }
-
-    public string Genre { get; set; }
-
-    public string Description { get; set; }
-
-    public int Stars { get; set; }
-
-    public int Quantity { get; set; }
-
-    public string Author { get; set; }
-
-    public int Isbn { get; set; }
-
-    public int Pages { get; set; }
-
-        public List<string> BookReviews;
+        [Required]
+        public double Price { get; set; }
+        [Required]
+        public string Picture { get; set; }
+        [Required]
+        public string Title { get; set; }
+        [Required]
+        public string Genre { get; set; }
+        [Required]
+        public string Description { get; set; }
+        [Required]
+        public int Stars { get; set; }
+        [Required]
+        public int Quantity { get; set; }
+        [Required]
+        public string Author { get; set; }
+        [Required]
+        public int Isbn { get; set; }
+        [Required]
+        public int Pages { get; set; }
+        [Required]
+        public string BookReviewsURL;
 }
 }

@@ -25,7 +25,15 @@
                     @Html.Partial("_CartPartial")
                 }
                 @Html.Partial("_LoginPartial")
-                @Html.Partial("_SearchPartial")
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        @Html.ActionLink(" Search Book ", "MarketPage", "Market", new { area = "" })
+
+                    </li>
+                </ul>
+
+
 
             </div>
         </div>

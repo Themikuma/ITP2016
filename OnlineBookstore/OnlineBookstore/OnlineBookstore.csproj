@@ -196,6 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -240,7 +241,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\Details\BookDetailsPage.html" />
+    <Content Include="Views\Details\BookDetailsPage.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -278,8 +279,8 @@
     <Content Include="Views\Shared\_MarketBookThumnailPartial.cshtml" />
     <Content Include="Views\Market\MarketPage.cshtml" />
     <Content Include="Views\Shared\_CartPartial.cshtml" />
-    <Content Include="Views\Shared\_SearchPartial.cshtml" />
     <Content Include="Views\Market\CartList.cshtml" />
+    <Content Include="Views\Market\OrderPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Images\" />
