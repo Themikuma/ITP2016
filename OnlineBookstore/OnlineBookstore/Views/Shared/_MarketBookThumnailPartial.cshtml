@@ -3,9 +3,7 @@
 
 <style>
     img {
-        max-width: 100px;
         width: 100px;
-        max-height : 200px;
         height: 200px;
     }
 
@@ -15,26 +13,22 @@
 
 <div class="col-sm-4 col-lg-4 col-md-4">
     <div class="thumbnail">
-        <img src="@Url.Action("GetLocalImage", "Images", new { imageName = Model.Picture })" alt=""  />
+        <img src="@Url.Action("GetLocalImage", "Images", new { imageName = Model.Picture })" alt=""  height="200" width="100"/>
         <div class="caption">
             
             
             <h4>
                 @Html.ActionLink(Model.Title, "BookDetails", "Details", new { isbn = Model.Isbn },"")
             </h4>
-<<<<<<< HEAD
             @if (Model.Description.Length < 200)
             {
                 <p><font face="Time New Roman">@Model.Description</font></p>
             }
             else
             {
-                <p><font face="Time New Roman"> @Model.Description.Substring(0, 200) @Html.ActionLink("See more...", "BookDetails", "Details", new { isbn = Model.Isbn }, "");</font></p>
+                <p><font face="Time New Roman"> @Model.Description.Substring(0, 200) @Html.ActionLink("See more...", "BookDetails", "Details", new { isbn = Model.Isbn }, "")</font></p>
             }
-=======
             <p><h4 class="text-right">@string.Format("{0:C2}", Model.Price) $</h4></p>
-            <p>@Model.Description</p>
->>>>>>> b6845f9508b691328831f6da472e5b02e6b85c7b
         </div>
         <div class="ratings">
             <p>

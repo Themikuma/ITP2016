@@ -12,7 +12,7 @@ namespace OnlineBookstore.Controllers
         // GET: Images
         public ActionResult GetLocalImage(string imageName)
         {
-            var root = @"C:\Users\SunMi\Desktop\ITP\ITPPictures";
+            var root = @"E:\IPTPictures";
             var path = Path.Combine(root, imageName);
             path = Path.GetFullPath(path);
             if (!path.StartsWith(root))

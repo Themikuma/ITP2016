@@ -6,9 +6,9 @@
 <style>
     img {
         max-width: 300px;
-        width:200px;
+        width:100px;
         max-height: 200px;
-        height:100px;
+        height:200px;
     }
 </style>
 
@@ -25,7 +25,7 @@
     </script>
 </head>
 <body>
-    <h2 style="background-color:floralwhite">Model.Genre -<font face="Time New Roman" size="5"> @Model.Title  </font></h2> <hr />&nbsp;
+    <h2 style="background-color:floralwhite">@Model.Author -<font face="Time New Roman" size="5"> @Model.Title  </font></h2> <hr />&nbsp;
 
     <div class="container">
         @{ string frameSource = "https://www.goodreads.com/api/reviews_widget_iframe?did=DEVELOPER_ID&format=html&header_text=Goodreads+reviews&isbn=" + Model.Isbn + "&links=660&min_rating=0&num_reviews=5&review_back=ffffff&stars=ff0000&stylesheet=&text=444";}
@@ -69,18 +69,17 @@
 
                     <div class="form-group" align="right">
                         <div class="col-md-offset-2">
-                            @if (Model.Quantity != 0)
+                            @if (User.Identity.IsAuthenticated)
                             {
-<<<<<<< HEAD:OnlineBookstore/OnlineBookstore/Views/Details/BookDetails.cshtml
-                                <input type="button" class="btn btn-primary btn-lg" value="Add to cart" onclick="orderBook('@Model.Isbn')"/>
-=======
-                                <input type="button" class="btn btn-primary btn-lg" value="Add to Cart" onclick="location='/Market/OrderPage'"/>
->>>>>>> b6845f9508b691328831f6da472e5b02e6b85c7b:OnlineBookstore/OnlineBookstore/Views/Details/BookDetailsPage.cshtml
-                            }
+                                if (Model.Quantity != 0)
+                                {
+                                    <input type="button" class="btn btn-primary btn-lg" value="Add to cart" onclick="orderBook('@Model.Isbn')" />
+                                }
 
-                            @if (Model.Quantity == 0)
-                            {
-                                <input type="button" class="btn btn-disabled btn-lg " value="Sold Out" />
+                                if (Model.Quantity == 0)
+                                {
+                                    <input type="button" class="btn btn-disabled btn-lg " value="Sold Out" />
+                                }
                             }
                                 <input type="button" class="btn btn-default btn-lg" value="Cancel" onclick="location='/Market/MarketPage'" />
                             

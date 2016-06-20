@@ -29,7 +29,6 @@ namespace OnlineBookstore
             BookDetailsViewModel bookModel = new BookDetailsViewModel(book.Price, book.Picture, book.Title, book.Genre,
                 book.Description, book.Stars, book.Quantity, book.Author, book.Isbn, book.Pages, book.GoodreadsLink);
             return bookModel;
-            throw new NotImplementedException();
         }
 
         public Dictionary<string, List<BookPreviewViewModel>> GetBooksByTitle(string filterText)
@@ -48,6 +47,20 @@ namespace OnlineBookstore
         {
             var filtered = context.Books.Where(t => t.Genre.Contains(genre));
             return GroupBooksByGenre(filtered);
+        }
+
+        public OrderPageViewModel GetUserData(string userId)
+        {
+            var user = context.Users.Single(t => t.Id == userId);
+            OrderPageViewModel result = new OrderPageViewModel();
+            result.Address = user.Address;
+            result.Country = user.Country;
+            result.Email = user.Email;
+            result.FirstName = user.FirstName;
+            result.LastName = user.LastName;
+            result.PhoneNumber = user.PhoneNumber;
+            result.ZipCode = user.ZipCode;
+            return result;
         }
 
         private Dictionary<string, List<BookPreviewViewModel>> GroupBooksByGenre(IEnumerable<Book> books)

@@ -38,11 +38,7 @@ namespace OnlineBookstore.Models
 
     public class OrderPageViewModel
     {
-        public List<BookPreviewViewModel> OrderPageModel;
-
-        public double TotalPrice;
-
-        public string UserName { get; set; }
+        public IEnumerable<CartViewModel> Items { get; set; }
 
         [Required]
         [Display(Name = "First Name")]
@@ -56,6 +52,7 @@ namespace OnlineBookstore.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
+        [Required]
         [Display(Name = "Address")]
         public string Address { get; set; }
 
@@ -67,6 +64,7 @@ namespace OnlineBookstore.Models
         [Display(Name = "Country")]
         public string Country { get; set; }
 
+        [Required]
         [Display(Name = "Phone Number")]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
